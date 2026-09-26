@@ -1,0 +1,33 @@
+# resume_skill_extractor.py
+import re
+skills = [
+    "Python", "Java", "C++", "JavaScript",
+    "HTML", "CSS", "SQL", "Machine Learning",
+    "Deep Learning", "Data Science", "React",
+    "Django", "Flask", "Git", "AWS", "Excel"
+]
+resume = """
+John is a Computer Science graduate with experience in Python,
+Machine Learning, SQL, HTML, CSS and JavaScript.
+He has worked with Git, Flask and AWS.
+"""
+resume_lower = resume.lower
+found_skills = []
+for skill in skills:
+    if re.search(r"\b" + re.escape(skill.lower()) + r"\b", resume_lower):
+        found_skills.append(skill)
+print("Extracted Skills:")
+for skill in found_skills:
+    print("-", skill)
+
+OUTPUT:
+Extracted Skills:
+- Python
+- JavaScript
+- HTML
+- CSS
+- SQL
+- Machine Learning
+- Flask
+- Git
+- AWS
